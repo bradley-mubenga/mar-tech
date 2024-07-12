@@ -1,0 +1,53 @@
+{
+  "exportFormatVersion": 2,
+  "containerVersion": {
+    "container": {
+      "publicId": "GTM-XXXXXX"
+    },
+    "tag": [
+      {
+        "tagId": "1",
+        "name": "Set Transaction ID",
+        "type": "html",
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "html",
+            "value": "<script>\n  (function() {\n    function getRandomString(length) {\n      var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';\n      var result = '';\n      var charactersLength = characters.length;\n      for (var i = 0; i < length; i++) {\n        result += characters.charAt(Math.floor(Math.random() * charactersLength));\n      }\n      return result;\n    }\n\n    function setTransactionID() {\n      var transactionID = localStorage.getItem('transactionID');\n      if (!transactionID) {\n        transactionID = getRandomString(16);\n        localStorage.setItem('transactionID', transactionID);\n      }\n      return transactionID;\n    }\n\n    var transactionID = setTransactionID();\n\n    window.dataLayer = window.dataLayer || [];\n    window.dataLayer.push({\n      'event': 'transactionIDSet',\n      'transactionID': transactionID\n    });\n  })();\n<\/script>"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "supportDocumentWrite",
+            "value": "false"
+          }
+        ],
+        "priority": 2147483647,
+        "firingTriggerId": [
+          "2147479556"
+        ]
+      }
+    ],
+    "trigger": [
+      {
+        "triggerId": "2147479556",
+        "name": "All Pages",
+        "type": "PAGEVIEW",
+        "filter": []
+      }
+    ],
+    "variable": [
+      {
+        "variableId": "2",
+        "name": "DLV - Transaction ID",
+        "type": "DATA_LAYER",
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "name",
+            "value": "transactionID"
+          }
+        ]
+      }
+    ]
+  }
+}
