@@ -1,5 +1,5 @@
 ## 1. Create a Custom HTML Tag to Set the Transaction ID
-### This tag will generate and store the transactionID and push it to the data layer.
+### This tag will generate and store the transactionID and push it to the data layer. This will also help prevent Google Ads from counting duplicate conversions in each session.
 
 - Tag Name: Set Transaction ID
 - Tag Type: Custom HTML
