@@ -7,7 +7,7 @@
 - Choose either to Add to the workspace.
 - Follow the prompts to complete the import.
 
-## 1. Verify and Update the Custom HTML Tag and Variables
+## 1. Verify the Custom HTML Tag and Variables
 - Tag Name: Set Transaction ID
 - Tag Type: Custom HTML
 - Tag Content:
