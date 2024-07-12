@@ -1,8 +1,16 @@
-## 1. Create a Custom HTML Tag to Set the Transaction ID
-### This tag will generate and store the transactionID and push it to the data layer. This will also help prevent Google Ads from counting duplicate conversions in each session.
+# Instructions
+- Download the JSON content in this directory.
+- Go to your GTM account.
+- Click on Admin.
+- In the Container section, click on Import Container.
+- Select Choose file and select the downloaded container file.
+- Choose either to Add to the workspace.
+- Follow the prompts to complete the import.
 
+## 1. Verify and Update the Custom HTML Tag and Variables
 - Tag Name: Set Transaction ID
 - Tag Type: Custom HTML
+- Tag Content:
 ```html
 <script>
   (function() {
@@ -36,14 +44,10 @@
 </script>
 ```
 
-## 2. Create a Data Layer Variable for the Transaction ID
+## 2. Check Data Layer Variable for the Transaction ID:
 - Variable Name: DLV - Transaction ID
 - Variable Type: Data Layer Variable
 - Data Layer Variable Name: transactionID
-
-## 3. Create a Trigger for the Custom HTML Tag
-- Trigger Name: All Pages (or a specific page where the conversion occurs)
-- Trigger Type: Page View > All Pages
 
 ## 4. Modify the Conversion Tag to Use the Transaction ID
 - Tag Type: Google Ads Conversion Tracking (or your custom conversion tag)
