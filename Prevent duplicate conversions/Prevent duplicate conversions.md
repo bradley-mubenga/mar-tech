@@ -1,13 +1,7 @@
 # Instructions
-- Download the JSON content in this directory.
-- Go to your GTM account.
-- Click on Admin.
-- In the Container section, click on Import Container.
-- Select Choose file and select the downloaded container file.
-- Choose either to Add to the workspace.
-- Follow the prompts to complete the import.
+Follow the steps below to setup the transaction ID and prevent duplicate conversions.
 
-## 1. Verify the Custom HTML Tag and Variables
+## 1. Create the Custom HTML Tag and Variables
 - Tag Name: Set Transaction ID
 - Tag Type: Custom HTML
 - Tag Content:
@@ -44,14 +38,14 @@
 </script>
 ```
 
-## 2. Check Data Layer Variable for the Transaction ID:
+## 2. Create Data Layer Variable for the Transaction ID:
 - Variable Name: DLV - Transaction ID
 - Variable Type: Data Layer Variable
 - Data Layer Variable Name: transactionID
 
 ## 4. Modify the Conversion Tag to Use the Transaction ID
-- Tag Type: Google Ads Conversion Tracking (or your custom conversion tag)
-If you are using a custom HTML conversion tag, it should look like this:
+- If you are using the built in tags in GTM, just go into your tag and add the transaction Id variable in step 2 in the variable option or parameter in the tag.
+- If you are using a custom HTML conversion tag, it should look something like this:
 
 ```html
 <script>
@@ -67,7 +61,7 @@ If you are using a custom HTML conversion tag, it should look like this:
 ## 5. Set Up Tag Firing Sequence
 ### To ensure the transaction ID is set before the conversion tag fires, use GTM's tag sequencing feature.
 
-- Edit your conversion tag.
+- Click to edit your conversion tag.
 - Scroll to the Advanced Settings section.
 - Click Tag Sequencing.
 - Check the box for Fire a Tag before...
