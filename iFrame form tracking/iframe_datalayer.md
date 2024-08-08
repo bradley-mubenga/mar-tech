@@ -4,7 +4,8 @@
 - Create custom HTML tag in GTM and paste the code below
 - Select trigger and set the trigger to all pages.
 - Test the iFrame form on your website and see what happens when you interact with it. 
-- If it works you'll see events like `iframe_form_submit` pushed to the DataLayer.
+- If it works you'll see events like `iframe_form_submit` and `iframe_form_start` pushed to the DataLayer.
+- In some cases the `iframe_form_submit` is not triggered, in this case you can add a click conversion to track the imbeded form submit.
 
 ```html
 <script>
