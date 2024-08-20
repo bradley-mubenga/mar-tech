@@ -39,11 +39,11 @@ storeGCLIDAsCookie();
 
 // Setting form variable depending on landing page
 var form = "";
-if (document.getElementById("replaceWithYourFormID") == null) {
-  form = document.getElementById("replaceWithYourFormID");
+if (document.getElementById("replaceOnlyIf2Forms") == null) {
+  form = document.getElementById("replaceWithYourFormID1");
 }
   
-else if (document.getElementById("replaceWithYourFormID2") == null) {
+else if (document.getElementById("replaceWithYourFormID1") == null) {
   form = document.getElementById("replaceWithYourFormID2");
 }
   
