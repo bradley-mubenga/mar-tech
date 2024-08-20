@@ -1,7 +1,12 @@
 # Instructions
 Follow the steps below to setup the transaction ID and prevent duplicate conversions. You will need a [Google Tag Manager](https://tagmanager.google.com) account and [ActivePieces](https://www.activepieces.com/)
 
-## 1. Create the Custom HTML Tag and Variables
+## 1. Create active pieces flow
+- Setup a webhook listner in Activepies
+- When the webhook is triggered initiate a update row piece.
+- Follow the next steps
+
+## 2. Create the Custom HTML Tag and Variables
 Before you create the tag below in Google Tag Manager, make sure your contact form(s) has an ID. Replace the IDs in the JavaScript with your own form ids, if you have one form then just edit the first one, if you have more than two add as many if statements as you need.
 
 Replace the webhook url as well as the token with your own from ActivePieces.
@@ -124,37 +129,15 @@ form.addEventListener("submit", function(){
 </script>
 ```
 
-## 2. Create Data Layer Variable for the Transaction ID:
-- Variable Name: DLV - Transaction ID
-- Variable Type: Data Layer Variable
-- Data Layer Variable Name: transactionID
+## 3. Create Google 2 Google Sheets (Client Copy & Scheduled Upload)
+- [Download the Template Here](https://docs.google.com/spreadsheets/u/4/d/1g0-rFycZvezi8lr9lroysKx2qqAawWiRnr6F1IKwMh8/copy)
+- Add the suffix ``Scheduled Upload`` to the copied template above.
+- Then create a copy of the sheet above and add the suffix ``Client Copy`` to the second spreedsheet.
 
-## 4. Modify the Conversion Tag to Use the Transaction ID
-- If you are using the built in tags in GTM, just go into your tag and add the transaction Id variable in step 2 in the variable option or parameter in the tag.
-- If you are using a custom HTML conversion tag, it should look something like this:
+## 4. Connect Activepices to Google Sheets and test
+- Connect your Google Sheets piece and select the client copy sheet above.
+- Update the rows (using the row number) with the data provided in the webhook.
+- Test the flow
 
-```html
-<script>
-  gtag('event', 'conversion', {
-    'send_to': 'AW-123456789/AbC-D_efG-h12_34-567',
-    'value': 1.0,
-    'currency': 'USD',
-    'transaction_id': '{{DLV - Transaction ID}}'
-  });
-</script>
-```
-
-## 5. Set Up Tag Firing Sequence
-### To ensure the transaction ID is set before the conversion tag fires, use GTM's tag sequencing feature.
-
-- Click to edit your conversion tag.
-- Scroll to the Advanced Settings section.
-- Click Tag Sequencing.
-- Check the box for Fire a Tag before...
-- Select the Set Transaction ID tag.
-- Save your changes.
-
-## 6. Test Your Setup
-- Use GTM's Preview mode to test and debug.
-- Ensure the Set Transaction ID tag fires before the conversion tag.
-- Verify that the transactionID is available in the data layer and used in the conversion tag.
+## 5. Replace URL with production URL
+- Replace the test url with the production URL and save the changes in Google Tag Manager and Activate Active Pieces.
