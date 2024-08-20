@@ -131,11 +131,10 @@ form.addEventListener("submit", function(){
 
 ## 3. Create Google 2 Google Sheets (Client Copy & Scheduled Upload)
 - [Download the Template Here](https://docs.google.com/spreadsheets/u/4/d/1g0-rFycZvezi8lr9lroysKx2qqAawWiRnr6F1IKwMh8/copy)
-- Add the suffix ``Scheduled Upload`` to the copied template above.
 - Then create a copy of the sheet above and add the suffix ``Client Copy`` to the second spreedsheet.
 
 ## 4. Connect Activepices to Google Sheets and test
-- Connect your Google Sheets piece and select the client copy sheet above.
+- Connect your Google Sheets piece and select the sheet with the suffix ``Client Copy``.
 - Update the rows (using the row number) with the data provided in the webhook.
 - Test the flow
 
